@@ -53,8 +53,8 @@ modifications(_Config) ->
     Span6 = oc_span:add_link(Link, Span5),
     ?assertEqual(undefined, oc_span:add_link(Link, undefined)),
 
-    Span7 = oc_span:set_kind(<<"SERVER">>, Span6),
-    ?assertEqual(undefined, oc_span:set_kind(<<"SERVER">>, undefined)),
+    Span7 = oc_span:set_kind(?SPAN_KIND_SERVER, Span6),
+    ?assertEqual(undefined, oc_span:set_kind(?SPAN_KIND_SERVER, undefined)),
 
     ?assertEqual({error, no_report_buffer}, oc_span:finish_span(#span_ctx{}, Span7)),
 
